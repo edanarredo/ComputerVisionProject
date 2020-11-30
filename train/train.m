@@ -25,28 +25,17 @@ end
 % Save table of empty weak classifiers into classifiers1000.mat
 save classifiers1000 weak_classifiers;
 
-
-
 %%
 
 % Start 
 clear all
 load classifiers1000
-% Need to create a .mat file with...
-%   - face picture dimensions
-%   - face image integrals
-%   - nonface image integrals
-%   - faces and nonfaces
-
-
-% Indicate size of face/nonface subwindows to process
-
+% Need to finish make_test_dataset.m
 
 % Choose a classifier
-a = random_number(1, classifier_number); 
-weak_classifier = weak_classifiers{a};
+% a = random_number(1, classifier_number); 
+% weak_classifier = weak_classifiers{a};
 
-% Choose a training image
 
 
 
