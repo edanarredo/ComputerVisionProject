@@ -5,11 +5,10 @@
 restoredefaultpath;
 
 % will replace these with variables from "directories.m"
-addpath C:\Users\Daniel\Desktop\ComputerVisionProject\src;
 addpath C:\Users\Daniel\Desktop\ComputerVisionProject\data;
 addpath C:\Users\Daniel\Desktop\ComputerVisionProject\train;
 addpath C:\Users\Daniel\Desktop\ComputerVisionProject\train\lecture_functions;
-cd C:\Users\Daniel\Desktop\ComputerVisionProject\train;
+cd C:\Users\Daniel\Desktop\ComputerVisionProject\data;
 
 %% 
 
