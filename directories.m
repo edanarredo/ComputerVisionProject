@@ -1,4 +1,4 @@
 % Replace template PATHS with local ones on your PC
-data_directory = 'fill in appropriately';
-code_directory = 'fill in appropriately';
-training_directory = 'fill in appropriately';
+data_directory = 'C:\Users\Daniel\Desktop\ComputerVisionProject\data';
+code_directory = 'C:\Users\Daniel\Desktop\ComputerVisionProject\src';
+training_directory = 'C:\Users\Daniel\Desktop\ComputerVisionProject\train';
