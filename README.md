@@ -1,7 +1,1 @@
-# ComputerVisionProject
-
-I didn't upload it, but make sure to add a folder called "data" in the parent directory and add the face data folders from the project assignment description into there
-
-Current Objectives
-- finish `make_test_dataset.m`
-- `train.m` 
+Adaptive Boosting is a popular ML technique that uses weak binary classifiers to construct stronger ones based on previous results. Compared to other learning methods, an Adaboost model is quite easy to implement and can tolerate a decent amount of excess noise from the training or testing data. In this project, the Adaptive Boosting method was applied in order to detect faces.
