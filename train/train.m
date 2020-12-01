@@ -1,18 +1,19 @@
 %% 
 
-% Updating Paths and Changing Directory
+% Change PATH variables in 'directories.m' before running this script
 
 restoredefaultpath;
+lecture_functions = strcat(training_directory, '\lecture_functions');
 
-% will replace these with variables from "directories.m"
-addpath C:\Users\Daniel\Desktop\ComputerVisionProject\data;
-addpath C:\Users\Daniel\Desktop\ComputerVisionProject\train;
-addpath C:\Users\Daniel\Desktop\ComputerVisionProject\train\lecture_functions;
-cd C:\Users\Daniel\Desktop\ComputerVisionProject\data;
+addpath(data_directory);
+addpath(training_directory);
+addpath(lecture_functions);
+cd(data_directory);
 
 %% 
 
 % Setup
+
 face_horizontal = 100;
 face_vertical = 100;
 
@@ -28,11 +29,12 @@ save classifiers1000 weak_classifiers;
 
 %%
 
+% NEED TO FINISH MAKE_TEST_DATASET.M FOR THIS SECTION TO WORK
+
 % Start 
 clear all;
 load classifiers1000;
-% **Need to finish make_test_dataset.m
-% load samples100;
+load samples100;
 
 % Label faces and nonfaces
 sample_number = size(faces, 3) + size(nonfaces, 3);
