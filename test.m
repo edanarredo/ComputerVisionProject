@@ -6,14 +6,8 @@
 %%
 %AdaBoost:
 
-
-
-
-
 %%
 %Skin detection:
-
-
 
 
 %%

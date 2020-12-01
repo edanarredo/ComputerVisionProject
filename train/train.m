@@ -14,9 +14,6 @@ cd(data_directory);
 
 % Setup
 
-face_horizontal = 100;
-face_vertical = 100;
-
 % Choosing set of random weak classifiers
 number = 1000;
 weak_classifiers = cell(1, number);
@@ -37,30 +34,75 @@ load classifiers1000;
 load samples100;
 
 % Label faces and nonfaces
-sample_number = size(faces, 3) + size(nonfaces, 3);
-labels = zeros(sample_number, 1);
-labels (1: size(faces, 3)) = 1;
-labels((size(faces, 3)+1):sample_number) = -1;
-
-examples = zeros(face_vertical, face_hotizontal, sample_number);
+example_number = size(faces, 3) + size(nonfaces, 3);
+labels = zeros(example_number, 1);
+labels (1:size(faces, 3)) = 1;
+labels((size(faces, 3)+1):example_number) = -1;
+examples = zeros(face_vertical, face_horizontal, example_number);
 examples (:, :, 1:size(faces, 3)) = face_integrals;
-examples (:, :, (size(faces, 3) + 1): example_number) = nonface_integrals;
+examples(:, :, (size(faces, 3)+1):example_number) = nonface_integrals;
 
-classifier_number = nume1(weak_classifiers);
+classifier_number = numel(weak_classifiers);
 
-responses = zeros(classifier_number, sample_number);
+responses =  zeros(classifier_number, example_number);
 
-for example = 1: sample_number
+for example = 1:example_number
     integral = examples(:, :, example);
-    for feature = 1: classifier_number
+    for feature = 1:classifier_number
         classifier = weak_classifiers {feature};
         responses(feature, example) = eval_weak_classifier(classifier, integral);
-    end 
+    end
     disp(example)
 end
 
+%% 
+
+% Verify Correct Responses
+clear all;
+load training1000
+load classifiers1000
+load samples100
+
+% choose a classifier
+a = random_number(1, classifier_number);
+wc = weak_classifiers{a};
+
+% choose a training image
+b = random_number(1, example_number);
+if (b <= size(faces, 3))
+    integral = face_integrals(:, :, b);
+else
+    integral = nonface_integrals(:, :, b - size(faces,3));
+end
+
+% see the precomputed response
+disp([a, b]);
+disp(responses(a, b));
+disp(eval_weak_classifier(wc, integral));
+
+%%
+
+clear all;
+load training1000;
+weights = ones(example_number, 1) / example_number;
 
 
+%%
+cl = random_number(1, 1000)
+[error, thr, alpha] = weighted_error(responses, labels, weights, cl)
 
+%%
 
+weights = ones(example_number, 1) / example_number;
+% next line takes about 8.5 seconds.
+tic; [index error threshold] = find_best_classifier(responses, labels, weights); toc
+disp([index error]);
 
+%%
+
+clear all;
+load training1000;
+load classifiers1000;
+boosted_classifier = AdaBoost(responses, labels, 15);
+
+save boosted boosted_classifier
