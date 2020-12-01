@@ -35,23 +35,30 @@ nonface_names = {nonfaces_list.name};
 nonfaces = zeros(100, 100, 100);
 for i = 1: 100
     nonface_to_insert = rgb2gray(imread(strcat('training_nonfaces/', nonface_names{i})));
-    imshow(nonface_to_insert, []);
     [row, col] = size(nonface_to_insert);
-    nonface_to_insert = imcrop(nonface_to_insert, [row/2, col/2, row-101, col-101]);
+    nonface_to_insert = imcrop(nonface_to_insert, [50, 50, 99, 99]);
+    nonfaces(:,:,i) = nonface_to_insert;
 end
 
 %%
 
 % find faces integrals
-% faces_integrals = a 3d array of 100 face integral images
+face_integrals = zeros(100, 100, 100);
+for i = 1: 100
+    face_integrals(:, :, i) = integral_image(faces(:,:,i));
+end
+
 
 %%
 
 % find nonfaces integrals
-% nonfaces_integrals = a 3d array of 100 nonface integral images
+nonface_integrals = zeros(100, 100, 100);
+for i = 1: 100
+    nonface_integrals(:, :, i) = integral_image(nonfaces(:,:,i));
+end
 
 %%
 
 % Create .mat file
 
-save samples100 face_vertical face_horizontal face_size
+save samples100 face_vertical face_horizontal face_size face_integrals nonface_integrals
