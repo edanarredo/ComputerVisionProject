@@ -4,7 +4,8 @@ To run, change the path variables in `directories.m` to wherever the files will 
 
 Then on the MATLAB terminal, run the following in this sequence.
 
-``` >> directories
+```
+  >> directories
   >> make_test_dataset
   >> train
   >> directories
