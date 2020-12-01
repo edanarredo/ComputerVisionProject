@@ -60,5 +60,4 @@ end
 %%
 
 % Create .mat file
-
-save samples100 face_vertical face_horizontal face_size face_integrals nonface_integrals
+save samples100 face_vertical face_horizontal face_size face_integrals nonface_integrals faces nonfaces

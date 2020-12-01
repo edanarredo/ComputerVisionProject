@@ -26,8 +26,6 @@ save classifiers1000 weak_classifiers;
 
 %%
 
-% NEED TO FINISH MAKE_TEST_DATASET.M FOR THIS SECTION TO WORK
-
 % Start 
 clear all;
 load classifiers1000;
@@ -54,6 +52,8 @@ for example = 1:example_number
     end
     disp(example)
 end
+
+save training1000 responses labels classifier_number example_number
 
 %% 
 
