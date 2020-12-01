@@ -8,4 +8,5 @@ Then on the MATLAB terminal, run the following in this sequence.
   >> make_test_dataset
   >> train
   >> directories
-  >> test```
+  >> test
+```
