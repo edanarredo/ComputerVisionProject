@@ -2,7 +2,7 @@ Adaptive Boosting is a popular ML technique that uses weak binary classifiers to
 
 To run, change the path variables in `directories.m` to wherever the files will be stored locally on your system.
 
-Then on the MATLAB terminal, run the following in this sequence.
+Then on the MATLAB terminal, run the following in this sequence (make sure to change to the appropriate directory).
 
 ```
   >> directories
